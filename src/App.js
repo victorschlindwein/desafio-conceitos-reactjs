@@ -24,18 +24,12 @@ function App() {
   }
 
   async function handleRemoveRepository(id) {
-    console.log(id);
     const idCatcher = repos.findIndex( repo => repo.id === id);
     await api.delete(`repositories/${id}`);
     
     repos.splice(idCatcher, 1)
     setRepos([...repos]);
- 
-
-    console.log(idCatcher);
   }
-
-  //const idToRemove = "05e762ac-1c6f-45dd-95c1-eb0635b14276"
 
   return (
     <div>
