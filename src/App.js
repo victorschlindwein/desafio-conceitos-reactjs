@@ -35,20 +35,19 @@ function App() {
     console.log(idCatcher);
   }
 
-  const idToRemove = "05e762ac-1c6f-45dd-95c1-eb0635b14276"
+  //const idToRemove = "05e762ac-1c6f-45dd-95c1-eb0635b14276"
 
   return (
     <div>
       <ul data-testid="repository-list">
-        <li>
-          <button onClick={() => handleRemoveRepository(idToRemove)}>
+            {repos.map(repo => 
+            <li key={repo.id}>{repo.title} 
+            
+            <button onClick={() => handleRemoveRepository(repo.id)}>
             Remover
           </button>
-        </li>
-      </ul>
-      
-      <ul>
-            {repos.map(repo => <li key={repo.id}>{repo.title}</li>)}
+          
+           </li>)}
       </ul>
       
       <button onClick={handleAddRepository}>Adicionar</button>
